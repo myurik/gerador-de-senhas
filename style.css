@@ -1,0 +1,72 @@
+:root {
+    --cor-fundo: #001233;
+    --cor-card: #33415c;
+    --cor-texto: #979dac;
+    --cor-destaque: #0466c8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-fundo);
+
+}
+
+main{
+    background-color: var(--cor-card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    color: #e0e0e0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+main > div {
+    margin-bottom: 1.2rem;
+}
+
+main > div:last-child {
+    margin-bottom: 0;
+}
+main > div:first-child {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#senha-gerada {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+#btn-copiar {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#btn-copiar:hover {
+    opacity: 0.85;
+}
