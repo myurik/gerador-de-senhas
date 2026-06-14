@@ -43,3 +43,25 @@ function gerarSenha(){
 
     return senha;
 }
+
+function atualizarSenha(){
+    inputSenha.value = gerarSenha();
+}
+
+btnGerar.addEventListener("click", function(){
+    atualizarSenha();
+});
+
+sliderTamanho.addEventListener("input", function(){
+    valorTamanho.textContent = sliderTamanho.value;
+})
+
+btnCopiar.addEventListener("click", function(){
+    const senha = inputSenha.value;
+    navigator.clipboard.writeText(senha).then(() => {
+        alert("Copiado com sucesso!");
+    });
+});
+
+atualizarSenha();
+
