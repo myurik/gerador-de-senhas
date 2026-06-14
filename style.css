@@ -129,3 +129,17 @@ input[type="checkbox"] {
 .forte {
     color: #2ecc71;
 }
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+}
