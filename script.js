@@ -33,11 +33,17 @@ function obterCaracteresDisponiveis(){
 
 function gerarSenha(){
     let caracteres = obterCaracteresDisponiveis()
+
+    if (caracteres.length === 0){
+        alert("Selecione pelo menos um tipo de caractere para gerar a senha.")
+        return "";
+    }
+
     let tamanho = Number(sliderTamanho.value)
     let senha = ""
 
     for (i = 0; i < tamanho; i++) {
-        index = Math.floor(Math.random() * caracteres.length);
+        let index = Math.floor(Math.random() * caracteres.length);
         senha += caracteres[index];
     }
 
@@ -58,10 +64,14 @@ sliderTamanho.addEventListener("input", function(){
 
 btnCopiar.addEventListener("click", function(){
     const senha = inputSenha.value;
+
+    if(senha === ""){
+        alert("Não há senha para copiar!");
+        return;
+    }
+
     navigator.clipboard.writeText(senha).then(() => {
         alert("Copiado com sucesso!");
     });
 });
-
-atualizarSenha();
 
