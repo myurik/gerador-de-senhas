@@ -7,7 +7,7 @@ const checkMinusculas = document.getElementById("minusculas")
 const checkNumeros = document.getElementById("numeros")
 const checkSimbolos = document.getElementById("simbolos")
 const btnGerar = document.getElementById("btn-gerar")
-
+const forcaSenha = document.getElementById("forca-senha")
 const LETRAS_MAIUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LETRAS_MINUSCULAS = "abcdefghijklmnopqrstuvwxyz";
 const NUMEROS = "0123456789";
@@ -31,6 +31,23 @@ function obterCaracteresDisponiveis(){
     return caracteres;
 }
 
+function contarTiposSelecionados(){
+    let contador = 0;
+    if (checkMaiusculas.checked === true) {
+        contador ++;
+    }
+    if (checkMinusculas.checked === true) {
+        contador ++;
+    }
+    if (checkNumeros.checked === true) {
+        contador ++;
+    }
+    if (checkSimbolos.checked === true) {
+        contador ++;
+    }
+    return contador;
+}
+
 function gerarSenha(){
     let caracteres = obterCaracteresDisponiveis()
 
@@ -52,6 +69,34 @@ function gerarSenha(){
 
 function atualizarSenha(){
     inputSenha.value = gerarSenha();
+    let resultado = calcularForcaSenha();
+    forcaSenha.textContent = "Força: " + resultado;
+
+    forcaSenha.classList.remove("fraca", "media", "forte");
+    if(resultado === "Fraca"){
+        forcaSenha.classList.add("fraca");
+    }
+    else if(resultado === "Média"){
+        forcaSenha.classList.add("media");
+    }
+    else{
+        forcaSenha.classList.add("forte");
+    }
+}
+
+function calcularForcaSenha(){
+    let tamanho = Number(sliderTamanho.value);
+    let tipos = contarTiposSelecionados();
+
+    if(tamanho < 8){
+        return "Fraca";
+    }
+    else if(tamanho >= 8 && tipos >= 3){
+        return "Forte";
+    }
+    else {
+        return "Média";
+    }
 }
 
 btnGerar.addEventListener("click", function(){

@@ -101,3 +101,19 @@ main > div:last-child > div {
 #btn-gerar:hover {
     opacity: 0.85;
 }
+#forca-senha {
+    text-align: center;
+    font-weight: bold;
+}
+
+.fraca {
+    color: #e63946;
+}
+
+.media {
+    color: #ffd60a;
+}
+
+.forte {
+    color: #2ecc71;
+}
