@@ -1,13 +1,16 @@
-const inputSenha = document.getElementById("senha-gerada")
-const btnCopiar = document.getElementById("btn-copiar")
-const sliderTamanho = document.getElementById("tamanho")
-const valorTamanho = document.getElementById("valor-tamanho")
-const checkMaiusculas = document.getElementById("maiusculas")
-const checkMinusculas = document.getElementById("minusculas")
-const checkNumeros = document.getElementById("numeros")
-const checkSimbolos = document.getElementById("simbolos")
-const btnGerar = document.getElementById("btn-gerar")
-const forcaSenha = document.getElementById("forca-senha")
+const inputSenha = document.getElementById("senha-gerada");
+const btnCopiar = document.getElementById("btn-copiar");
+const sliderTamanho = document.getElementById("tamanho");
+const valorTamanho = document.getElementById("valor-tamanho");
+const checkMaiusculas = document.getElementById("maiusculas");
+const checkMinusculas = document.getElementById("minusculas");
+const checkNumeros = document.getElementById("numeros");
+const checkSimbolos = document.getElementById("simbolos");
+const btnGerar = document.getElementById("btn-gerar");
+const forcaSenha = document.getElementById("forca-senha");
+const iconeCopiar = document.getElementById("icone-copiar");
+const iconeCheck = document.getElementById("icone-check");
+
 const LETRAS_MAIUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LETRAS_MINUSCULAS = "abcdefghijklmnopqrstuvwxyz";
 const NUMEROS = "0123456789";
@@ -116,7 +119,13 @@ btnCopiar.addEventListener("click", function(){
     }
 
     navigator.clipboard.writeText(senha).then(() => {
-        alert("Copiado com sucesso!");
+        iconeCopiar.style.display = "none";
+        iconeCheck.style.display = "flex";
+
+        setTimeout(function(){
+            iconeCopiar.style.display = "flex";
+            iconeCheck.style.display = "none";
+        }, 1500);
     });
 });
 
