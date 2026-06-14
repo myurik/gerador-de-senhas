@@ -55,7 +55,7 @@ Feito por [Matheus Yuri](https://github.com/myurik)
 
 A secure password generator built with **plain HTML, CSS, and JavaScript**. Lets you customize the password length and the types of characters included, while visually displaying the strength of the generated password.
 
-![Project preview](screenshots/preview.png)
+![Project preview](assets/img/preview.png)
 
 ## ✨ Features
 
