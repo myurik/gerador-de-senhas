@@ -10,6 +10,8 @@ const btnGerar = document.getElementById("btn-gerar");
 const forcaSenha = document.getElementById("forca-senha");
 const iconeCopiar = document.getElementById("icone-copiar");
 const iconeCheck = document.getElementById("icone-check");
+const textoForca = document.getElementById("texto-forca");
+const barraPreenchimento = document.getElementById("barra-preenchimento");
 
 const LETRAS_MAIUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LETRAS_MINUSCULAS = "abcdefghijklmnopqrstuvwxyz";
@@ -73,17 +75,25 @@ function gerarSenha(){
 function atualizarSenha(){
     inputSenha.value = gerarSenha();
     let resultado = calcularForcaSenha();
-    forcaSenha.textContent = "Força: " + resultado;
+    textoForca.textContent = "Força: " + resultado;
 
-    forcaSenha.classList.remove("fraca", "media", "forte");
+    textoForca.classList.remove("texto-fraca", "texto-media", "texto-forte");
+    barraPreenchimento.classList.remove("barra-fraca", "barra-media", "barra-forte");
+
     if(resultado === "Fraca"){
-        forcaSenha.classList.add("fraca");
+        textoForca.classList.add("texto-fraca");
+        barraPreenchimento.classList.add("barra-fraca");
+        barraPreenchimento.style.width = "33%";
     }
     else if(resultado === "Média"){
-        forcaSenha.classList.add("media");
+        textoForca.classList.add("texto-media");
+        barraPreenchimento.classList.add("barra-media");
+        barraPreenchimento.style.width = "66%";
     }
     else{
-        forcaSenha.classList.add("forte");
+        textoForca.classList.add("texto-forte");
+        barraPreenchimento.classList.add("barra-forte");
+        barraPreenchimento.style.width = "100%";
     }
 }
 

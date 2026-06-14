@@ -113,21 +113,50 @@ input[type="checkbox"] {
 #btn-gerar:hover {
     opacity: 0.85;
 }
+
 #forca-senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
     text-align: center;
     font-weight: bold;
 }
 
-.fraca {
+.barra-forca {
+    flex: 1;
+    max-width: 100px;
+    height: 8px;
+    background-color: var(--cor-fundo);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#barra-preenchimento {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.texto-fraca {
     color: #e63946;
 }
-
-.media {
+.texto-media {
     color: #ffd60a;
 }
-
-.forte {
+.texto-forte {
     color: #2ecc71;
+}
+
+.barra-fraca {
+    background-color: #e63946;
+}
+.barra-media {
+    background-color: #ffd60a;
+}
+.barra-forte {
+    background-color: #2ecc71;
 }
 
 @media (max-width: 480px) {
